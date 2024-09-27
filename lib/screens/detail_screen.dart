@@ -1,3 +1,5 @@
+import 'package:domi_lab_assignment/screens/pdf.dart';
+import 'package:domi_lab_assignment/screens/photo_tab.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -21,18 +23,36 @@ class DetailScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.all(10),
+                  margin: const EdgeInsets.all(10),
                   height: 5, width: 40, decoration: BoxDecoration(
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(50)
                       
                 ),),
-                Expanded(
-                  child: ListView. builder( controller: scrollController,
-                      itemCount: 25,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(title: Text( 'Item $index'));}
+                Container(
+                  decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(20)),
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          const Text("domi in", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+                          const Spacer(),
+                          IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_forward_ios_outlined, color: Colors.white,))
+                        ],
+                      )
+                      ,
+                      const SizedBox(
+
+                        height: 100,
+                        child: GridGallery(),
+                      ),
+                    ],
                   ),
+                ),
+                const Expanded(
+                  child: PdfListScreen(),
                 ),
               ],
             ),
