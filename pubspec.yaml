@@ -37,11 +37,16 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   google_maps_flutter: ^2.9.0
-  photo_manager: ^3.4.0
+
   geocoding: ^3.0.0
   http: ^1.2.2
   path_provider: ^2.1.4
   permission_handler: ^11.3.1
+  open_file: ^3.5.7
+  file_picker: ^8.1.2
+  file_manager: ^1.0.2
+  syncfusion_flutter_pdfviewer: ^27.1.51
+  geolocator: ^13.0.1
 
 dev_dependencies:
   flutter_test:
