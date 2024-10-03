@@ -39,6 +39,42 @@ https://github.com/user-attachments/assets/76d928fe-3d58-42ab-a156-bf0e2108846e
 
 
 
+```markdown
+## Steps to Run the App
+
+1. **Clone the Repository**  
+   Open your terminal and run the following command:
+   ```bash
+   git clone https://github.com/Saransh1650/domi_lab_assignment.git
+   ```
+
+2. **Navigate to the Project Directory**  
+   After cloning, navigate to the project folder:
+   ```bash
+   cd domi_lab_assignment
+   ```
+
+3. **Install Dependencies**  
+   Ensure you have all necessary dependencies installed by running:
+   ```bash
+   flutter pub get
+   ```
+
+4. **Run the App**  
+   Use the following command to run the app on a connected device or emulator:
+   ```bash
+   flutter run
+   ```
+
+5. **Build for Release** (optional)  
+   To create a release build, you can run:
+   ```bash
+   flutter build apk --release
+   ```
+
+
+
+
 
 
 
