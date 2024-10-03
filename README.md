@@ -2,9 +2,14 @@
 
 > [!NOTE]  
 > If you want to run the code, you need to specify and API Key for that, I will also provide a working apk so that you wont need to add any api key, but in case if you run the code, please add the api keys or i'll provide you at the moment.
+
+
 > The Building appear based on your location, for example if you live in metro city, or in a well developmed area, most  probably buildings will be visible to you in the map, otherwise only roads and landmarks are visible.
+
+
 > If buildings are not visible you can navigate to San Francisco or any nearer location for better experience.
-> Or you can start the app in emulator, it will automatically redirect you to San Francisco.
+
+> Or you can start the app in iOS emulator, it will automatically redirect you to San Francisco.
 
 
 
