@@ -1,7 +1,36 @@
+# Domi Labs Assignment
+
+### Portrait Mode Live View
+https://youtube.com/shorts/LHNz6NWltnA
+
+### Landscape Mode Live View
+https://youtu.be/J1xyO6ImVUw
+
+### All components ::
+
+
+
+https://github.com/user-attachments/assets/121961b2-0e5e-47c4-bdd1-8c13ba5edc68
+
+
+
+https://github.com/user-attachments/assets/523659de-f3f9-45d1-9948-3e61f6c0ff02
+
+
+
+https://github.com/user-attachments/assets/fb5dfdfc-8abb-4e44-9720-56b52b664f4d
+
+
+
+https://github.com/user-attachments/assets/c932925f-e939-4062-a480-2c15423365da
+
+
+
+https://github.com/user-attachments/assets/76d928fe-3d58-42ab-a156-bf0e2108846e
 
 
 
 
 
 
-<img src="https://github.com/user-attachments/assets/9da95442-ca56-4bcd-aadf-162b3283bf86" width="300"/>
+
