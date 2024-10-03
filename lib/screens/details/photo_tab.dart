@@ -8,7 +8,7 @@ class GridGallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaFiles controller = Get.put(MediaFiles());
+    MediaFiles controller = Get.put(MediaFiles(), permanent: true);
     return  SizedBox(
       height: 70,
       child: ListView.builder(
@@ -17,8 +17,8 @@ class GridGallery extends StatelessWidget {
         itemBuilder: (context, index) {
         return Container(
           margin:const EdgeInsets.fromLTRB(0,0,10,0),
-          height: 70,
-          width: 70,
+
+          width: MediaQuery.of(context).size.width *1/5,
           child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(controller.picsList[index], fit: BoxFit.fill,)),

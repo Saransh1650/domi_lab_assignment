@@ -14,6 +14,10 @@ class MapScreen extends StatelessWidget {
     return Obx(() {
       return SizedBox(
         child: GoogleMap(
+          buildingsEnabled: true,
+          fortyFiveDegreeImageryEnabled: true,
+          zoomControlsEnabled: true,
+          zoomGesturesEnabled: true,
           markers: <Marker>{
             Marker(
               icon: controller.mapCurrentIcon.value,
@@ -25,6 +29,8 @@ class MapScreen extends StatelessWidget {
               onTap: () {
                 controller.iconPosition.value = const LatLng(0, 0);
                 boxVisibility.isVisible.value = false;
+                controller.currentAddress.value = "Tap on a location";
+                controller.image.value = "";
               },
               icon: controller.mapIcon.value,
               markerId: const MarkerId('marker_1'),
@@ -32,11 +38,8 @@ class MapScreen extends StatelessWidget {
                   controller.iconPosition.value.longitude),
             ),
           },
-          myLocationButtonEnabled: true,
           myLocationEnabled: true,
-          mapToolbarEnabled: true,
-
-           onTap:   controller.onMapTapped,
+          onTap: controller.onMapTapped,
           onCameraMove: controller.onCameraMove,
           scrollGesturesEnabled: true,
           padding: const EdgeInsets.all(10),
@@ -45,7 +48,7 @@ class MapScreen extends StatelessWidget {
           initialCameraPosition: CameraPosition(
             target: LatLng(
                 controller.currentLat.value, controller.currentLong.value),
-            zoom: 50.0,
+            zoom: 18.0,
           ),
         ),
       );

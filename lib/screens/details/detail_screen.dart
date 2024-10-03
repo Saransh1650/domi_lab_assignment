@@ -8,8 +8,9 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return DraggableScrollableSheet(
-        initialChildSize: 0.70,
+        initialChildSize: isPortrait ? 0.7 : 1,
         maxChildSize: 1,
         snap: true,
         expand: false,

@@ -6,12 +6,13 @@ class DomiIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     return Container(
       decoration: BoxDecoration(
           color: const Color.fromARGB(18, 255, 255, 255),
           borderRadius: BorderRadius.circular(20)),
       margin: const EdgeInsets.all(10),
-      padding: const EdgeInsets.all(20),
+      padding:isPortrait ? const EdgeInsets.all(20) : const EdgeInsets.fromLTRB(10, 0, 10, 0),
       child:  Column(
         children: [
           Row(

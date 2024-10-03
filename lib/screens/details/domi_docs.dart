@@ -1,16 +1,24 @@
 import 'package:domi_lab_assignment/screens/details/pdf.dart';
 import 'package:domi_lab_assignment/screens/details/search_docs.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../ViewModel/pdf_files.dart';
 
 class DomiDocs extends StatelessWidget {
   final ScrollController scrollableController;
+
   const DomiDocs({super.key, required this.scrollableController});
 
   @override
   Widget build(BuildContext context) {
-    return  Expanded(
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+    MediaFiles controller = Get.put(MediaFiles(), permanent: true);
+    return Expanded(
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: isPortrait
+            ? const EdgeInsets.all(20)
+            : const EdgeInsets.fromLTRB(10, 0, 10, 0),
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             color: const Color.fromARGB(18, 255, 255, 255),
@@ -28,18 +36,26 @@ class DomiDocs extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.bold),
                 ),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                    ))
+                isPortrait
+                    ? IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                        ))
+                    : IconButton(
+                        onPressed: () {
+                          controller.pickPdf();
+                        },
+                        icon: const Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ))
               ],
             ),
-            const SearchDocs(),
+            isPortrait ? const SearchDocs() : const SizedBox(),
             Expanded(
-                child: PdfListScreen(
-                    scrollController: scrollableController)),
+                child: PdfListScreen(scrollController: scrollableController)),
           ],
         ),
       ),

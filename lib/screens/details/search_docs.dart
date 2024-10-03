@@ -7,14 +7,14 @@ class SearchDocs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaFiles controller = Get.put(MediaFiles());
+    MediaFiles controller = Get.put(MediaFiles(), permanent: true);
     return InkWell(
       onTap: (){
         controller.pickPdf();
       },
       child: Container(
         margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-        padding:const  EdgeInsets.fromLTRB(10, 0, 0, 0),
+        padding:const  EdgeInsets.fromLTRB(15, 0, 0, 0),
         height: MediaQuery.of(context).size.height * 1 / 15,
         width: MediaQuery.of(context).size.width * 9 / 10,
         decoration: BoxDecoration(
