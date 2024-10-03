@@ -11,6 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
     MapController controller = Get.put(MapController());
     InviteBox boxVisibility = Get.put(InviteBox());
     return Scaffold(
@@ -19,17 +20,18 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: Container(
-            width: 200,
-            height: 50,
+            margin: const EdgeInsets.all(10),
+            width: MediaQuery.of(context).size.width * 1/2,
+            height: isPortrait ?  MediaQuery.of(context).size.width * 1/9 : MediaQuery.of(context).size.width * 1/20,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50), color: Colors.black),
+                borderRadius: BorderRadius.circular(100), color: Colors.black),
             child: Center(child: Obx(() {
               return Row(
                 children: [
                   Container(
-                      margin: const EdgeInsets.all(5),
-                      height: 40,
-                      width: 40,
+                       margin: const EdgeInsets.all(2),
+                      height:MediaQuery.of(context).size.width * 1/9,
+                      width:isPortrait ?  MediaQuery.of(context).size.width * 1/9 : MediaQuery.of(context).size.width * 1/20,
                       child: controller.image.value == ""
                           ? Image.asset("assets/pin.png")
                           : ClipRRect(
@@ -42,8 +44,8 @@ class HomeScreen extends StatelessWidget {
                     flex: 1,
                   ),
                   Container(
-                    margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                    width: 120,
+                    margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                    width:  MediaQuery.of(context).size.width * 1/3,
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
@@ -56,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const Spacer(
-                    flex: 2,
+                    flex: 3,
                   )
                 ],
               );
@@ -64,27 +66,31 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.transparent,
-        leadingWidth: 65,
+        leadingWidth: isPortrait ?  MediaQuery.of(context).size.width * 2/13 : MediaQuery.of(context).size.width * 1/15,
+
         leading: Container(
-          margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-          height: 50,
-          width: 50,
+
+          margin: const EdgeInsets.fromLTRB(10, 7, 7, 7),
+
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50), color: Colors.black),
           child: IconButton(
-              onPressed: () {
 
+              onPressed: () {
+                Get.snackbar("No function", "The button does not do any functions for now");
               },
               icon: const Icon(
-                Icons.broadcast_on_personal_rounded,
+                size: 25,
+                Icons.account_circle_outlined,
                 color: Colors.white,
               )),
         ),
         actions: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-            height: 50,
-            width: 50,
+            height: isPortrait ?  MediaQuery.of(context).size.width * 1/9 : MediaQuery.of(context).size.width * 1/20,
+            width: isPortrait ?  MediaQuery.of(context).size.width * 1/9 : MediaQuery.of(context).size.width * 1/20,
+
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50), color: Colors.black),
             child: IconButton(

@@ -13,7 +13,6 @@ import 'package:http/http.dart' as http;
 import 'invite_box_controller.dart';
 
 class MapController extends GetxController {
-
   @override
   void onInit() async {
     super.onInit();
@@ -36,7 +35,7 @@ class MapController extends GetxController {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     mapController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(position.latitude, position.longitude), zoom: 50)));
+        target: LatLng(position.latitude, position.longitude), zoom: 18)));
     currentLat.value = position.latitude;
     currentLong.value = position.longitude;
     setMarker2(await getStreetView(position.latitude, position.longitude));
@@ -101,19 +100,18 @@ class MapController extends GetxController {
 
     // Draw the circular border
     final borderPaint = Paint()
-      ..color = Colors.grey // Set border color to grey
+      ..color = Colors.black // Set border color to grey
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0; // Border thickness
     canvas.drawCircle(const Offset(size / 2, size / 2), size / 2, borderPaint);
 
     // Draw the pointer shape
     final pointerPath = Path();
-    pointerPath.moveTo(size / 2, size);
-    pointerPath.lineTo(size * 0.7, size - tipHeight);
-    pointerPath.lineTo(size * 0.3, size - tipHeight);
+    pointerPath.moveTo(size / 2, size); // Start at the bottom center of the circle
+    pointerPath.lineTo(size / 2 + 5, size + 10); // Small right tip, extending outside the circle
+    pointerPath.lineTo(size / 2 - 5, size + 10); // Small left tip, extending outside the circle
     pointerPath.close();
     canvas.drawPath(pointerPath, paint);
-
     // Fetch the network image
     final response = await http.get(Uri.parse(url));
     final Uint8List imageBytes = response.bodyBytes;
@@ -185,19 +183,19 @@ class MapController extends GetxController {
 
     // Draw the circular border
     final borderPaint = Paint()
-      ..color = Colors.grey // Set border color to grey
+      ..color = Colors.black // Set border color to grey
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2.0; // Border thickness
     canvas.drawCircle(const Offset(size / 2, size / 2), size / 2, borderPaint);
 
+
     // Draw the pointer shape
     final pointerPath = Path();
-    pointerPath.moveTo(size / 2, size);
-    pointerPath.lineTo(size * 0.7, size - tipHeight);
-    pointerPath.lineTo(size * 0.3, size - tipHeight);
+    pointerPath.moveTo(size / 2, size); // Start at the bottom center of the circle
+    pointerPath.lineTo(size / 2 + 5, size + 10); // Small right tip, extending outside the circle
+    pointerPath.lineTo(size / 2 - 5, size + 10); // Small left tip, extending outside the circle
     pointerPath.close();
     canvas.drawPath(pointerPath, paint);
-
     // Fetch the network image
     final response = await http.get(Uri.parse(url));
     final Uint8List imageBytes = response.bodyBytes;
@@ -254,10 +252,12 @@ class MapController extends GetxController {
   Future<void> onMapTapped(LatLng position) async {
     boxVisibility.isVisible.value = true;
     boxVisibility.onTap.value = false;
+
     iconPosition.value = position;
     currentPosition.value = position;
     getAddressFromLatLng(position);
     await setMarker(await getStreetView(position.latitude, position.longitude));
+
   }
 
   Future<void> getAddressFromLatLng(LatLng position) async {
@@ -293,6 +293,7 @@ class MapController extends GetxController {
       String streetViewUrl =
           'https://maps.googleapis.com/maps/api/streetview?size=400x400&pano=$panoId&key=$api_key';
       print(streetViewUrl);
+      image.value = streetViewUrl;
       return streetViewUrl;
       print("image ::${image.value}");
     } catch (e) {
