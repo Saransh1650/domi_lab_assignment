@@ -11,6 +11,9 @@ https://youtube.com/shorts/LHNz6NWltnA
 ### Landscape Mode Live View
 https://youtu.be/J1xyO6ImVUw
 
+### Android Live View
+https://youtube.com/shorts/WP64guRW-l0?feature=share
+
 ### All components ::
 
 
